@@ -4,6 +4,8 @@
 
 __author__ = "???"
 
+import re
+
 # YOUR HELPER FUNCTION GOES HERE
 
 
@@ -13,10 +15,13 @@ def main():
 
     test_word = raw_input(
         'Please enter a word to solve.\nUse spaces to signify unknown letters: ').lower()
+    
 
     # YOUR ADDITIONAL CODE HERE
-    raise NotImplementedError('Please complete this')
-
+    regex = test_word.replace(r' ', r'\w') + r'$'
+    matches = [word for word in words if re.match(regex, word)]
+    for match in matches:
+        print(match)
 
 if __name__ == '__main__':
     main()
