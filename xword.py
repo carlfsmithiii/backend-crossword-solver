@@ -13,8 +13,10 @@ def main():
     with open('dictionary.txt') as f:
         words = f.read().split()
 
-    test_word = raw_input(
-        'Please enter a word to solve.\nUse spaces to signify unknown letters: ').lower()
+    prompt = 'Please enter a word to solve.\n' + \
+        'Use spaces to signify unknown letters: '
+
+    test_word = raw_input(prompt).lower()
 
     # YOUR ADDITIONAL CODE HERE
     regex = test_word.replace(r' ', r'\w') + r'$'
